@@ -1,0 +1,23 @@
+public class StartScreen{
+  private int framex;
+  private int framey;
+
+Public StartScreen(int framex,int framey){
+  this.framex=framex;
+  this.framey=framey;
+}
+Public showscreen(){
+ 
+ JButton Title = new JButton();
+		b.setBounds(50, 50, 100, 50);
+		b.setText("Assteroids");
+		b.setBackground(Color.Black);
+    b.setText(color
+  
+  
+  
+  
+  
+}
+
+}
