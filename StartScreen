@@ -9,10 +9,10 @@ Public StartScreen(int framex,int framey){
 Public showscreen(){
  
  JButton Title = new JButton();
-		b.setBounds(50, 50, 100, 50);
-		b.setText("Assteroids");
-		b.setBackground(Color.Black);
-    b.setText(color
+		Title.setBounds(50, 50, 100, 50);
+		Title.setText("Assteroids");
+		Title.setBackground(Color.Black);
+ JButton start = new Jbutton();   		
   
   
   
