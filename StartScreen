@@ -10,7 +10,7 @@ Public showscreen(){
  
  JButton Title = new JButton();
 		Title.setBounds(50, 50, 100, 50);
-		Title.setText("Assteroids");
+		Title.setText("Asteroids");
 		Title.setBackground(Color.black);
 		Title.setForeground(Color.white);
  JButton start = new Jbutton();   		
