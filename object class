@@ -1,0 +1,33 @@
+import java.awt.Shape;
+public class Object {
+	private Shape shape;
+	private boolean alive;
+	private double x, y, velx, vely, moveAngle, faceAngle;
+	
+	//getters
+	public double getX(){return x;}
+	
+	public double getY(){return y;}
+	
+	public Shape getShape(){return shape;}
+	
+	public double getVelX(){return velx;}
+	
+	public double getvelY(){return vely;}
+	
+	public boolean isAlive(){return alive;}
+	
+	public double getMoveAngle(){return moveAngle;}
+	
+	public double getFaceAngle(){return faceAngle;}
+	
+	//setters
+	//...
+	
+	//default constructor
+	public Object(){
+		
+		
+		
+	}
+}
