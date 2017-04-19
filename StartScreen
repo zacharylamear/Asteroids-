@@ -1,59 +1,105 @@
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+
 public class StartScreen{
   private int framex;
   private int framey;
 
-Public StartScreen(int framex,int framey){
+public StartScreen(int framex,int framey){
   this.framex=framex;
   this.framey=framey;
 }
-Public showscreen(){
- 
+public StartScreen(double d) {
+	// TODO Auto-generated constructor stub
+}
+public void showscreen(){
+	JFrame my_frame = new JFrame("Title");
+	my_frame.setSize(framex,framey);
+	my_frame.setVisible(true);
+	
  JButton Title = new JButton();
-		Title.setBounds(50, 50, 100, 50);
+ 		Title.setVisible(true);
+		Title.setBounds(0, 0, framex, framey);
 		Title.setText("Asteroids");
 		Title.setBackground(Color.black);
 		Title.setForeground(Color.white);
- JButton start = new Jbutton();   		
-  		start.setBounds(10,10,100,50);
-		start.setText("Start GAME");
-		start.setBackground(Color.black);
-  		start.setForeground(Color.white);
-		start.addMouseListener(
+		Title.addMouseListener(
 				new MouseListener(){
 
-					@Override
 					public void mouseClicked(MouseEvent arg0) {
 						// TODO Auto-generated method stub
-						System.exit(-1);
+						
 						
 					}
 
-					@Override
 					public void mouseEntered(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						
 					}
 
-					@Override
 					public void mouseExited(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						
 					}
 
-					@Override
 					public void mousePressed(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						
 					}
 
-					@Override
 					public void mouseReleased(MouseEvent arg0) {
 						// TODO Auto-generated method stub
 						
 					}}
 				);
   
-  
+ JButton start = new JButton();
+ 		start.setVisible(true);
+  		start.setBounds(200,325,200,50);
+		start.setText("Start GAME");
+		start.setBackground(Color.white);
+  		start.setForeground(Color.black);
+		start.addMouseListener(
+				new MouseListener(){
+
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						System.exit(-1);
+						
+					}
+
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}}
+				);
+
+		//JLayeredPane layered = new JLayeredPane();
+		//my_frame.setContentPane(layered);
+		//layered.add(Title, 2);
+		//layered.add(start, 1);
+		my_frame.add(start);
+		my_frame.add(Title);
   
 }
 
