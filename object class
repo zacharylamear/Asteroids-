@@ -1,33 +1,78 @@
+package Astr;
 import java.awt.Shape;
+
 public class Object {
+	//variables
 	private Shape shape;
 	private boolean alive;
-	private double x, y, velx, vely, moveAngle, faceAngle;
+	private double x, y;
+	private double velx;
+	private double vely;
+	private double moveAngle, faceAngle;
 	
 	//getters
-	public double getX(){return x;}
+	public double getX(){
+		return x;
+	}
+	public double getY(){
+		return y;
+	}
+	public Shape getShape(){
+		return shape;
+	}
 	
-	public double getY(){return y;}
+	public double getVelX(){
+		return velx;
+	}
 	
-	public Shape getShape(){return shape;}
+	public double getVelY(){
+		return vely;
+	}
 	
-	public double getVelX(){return velx;}
+	public double getMoveAngle(){
+		return moveAngle;
+	}
 	
-	public double getvelY(){return vely;}
+	public double getFaceAngle(){
+		return faceAngle;
+	}
 	
-	public boolean isAlive(){return alive;}
-	
-	public double getMoveAngle(){return moveAngle;}
-	
-	public double getFaceAngle(){return faceAngle;}
+	public boolean isAlive(){
+		return alive;
+	}
 	
 	//setters
-	//...
+	public void setX(double x){this.x = x;}
 	
-	//default constructor
+	public void setY(double y){this.y = y;}
+	
+	public void setAlive(boolean alive){this.alive = alive;}
+	
+	public void setVelX(double velx){this.velx = velx;}
+	
+	public void setVelY(double vely){this.vely = vely;}
+	
+	public void setMoveAngle(double moveAngle){this.moveAngle = moveAngle;}
+	
+	public void setFaceAngle(double faceAngle){this.faceAngle = faceAngle;}
+	
+	public void setShape(Shape shape){this.shape = shape;}
+	
+	
+	//Default constructor
+	
 	public Object(){
-		
-		
-		
+		//game should not start until player presses play
+		setShape(null);
+		setAlive(false);
+		setX(0.0);
+		setY(0.0);
+		setVelX(0.0);
+		setVelY(0.0);
+		setMoveAngle(0.0);
+		setFaceAngle(0.0);
 	}
+	
+	
 }
+
