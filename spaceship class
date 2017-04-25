@@ -1,1 +1,24 @@
-spaceship class
+package Astr;
+
+import java.awt.Rectangle;
+import java.awt.Polygon;
+
+
+public class Ship extends Object{
+	//make the ship
+	private int[] shipx = {};
+	private int[] shipy = {};
+	
+	public Rectangle getBounds(){
+		Rectangle r;
+		r = new Rectangle((int) getX(), (int) getY(), 12, 12);
+		return r;
+	}
+	
+	public Ship(){
+		Polygon p;
+		p = new Polygon(shipx, shipy, shipx.length);
+		setShape(p);
+		setAlive(true);
+	}
+}
