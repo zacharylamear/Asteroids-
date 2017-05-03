@@ -5,7 +5,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
-
+import javax.swing.*;  
 public class StartScreen{
   private int framex;
   private int framey;
@@ -18,16 +18,20 @@ public StartScreen(double d) {
 	// TODO Auto-generated constructor stub
 }
 public void showscreen(){
-	JFrame my_frame = new JFrame("Title");
+	JFrame my_frame = new JFrame();
 	my_frame.setSize(framex,framey);
+	//my_frame.getContentPane().setBackground(Color.black);
+	my_frame.setLayout(null);
 	my_frame.setVisible(true);
-	
- JButton Title = new JButton();
- 		Title.setVisible(true);
-		Title.setBounds(0, 0, framex, framey);
+JButton background = new JButton();
+	background.setBounds(0, 0, 600, 600);
+
+ JButton Title = new JButton("title");
+
+		Title.setBounds(100, 100, 400, 100);
 		Title.setText("Asteroids");
-		Title.setBackground(Color.black);
-		Title.setForeground(Color.white);
+		Title.setBackground(Color.white);
+		Title.setForeground(Color.black);
 		Title.addMouseListener(
 				new MouseListener(){
 
@@ -57,13 +61,46 @@ public void showscreen(){
 						
 					}}
 				);
-  
- JButton start = new JButton();
- 		start.setVisible(true);
-  		start.setBounds(200,325,200,50);
+ 
+ JButton start = new JButton("start");
+  		start.setBounds(200,250,200,50);
 		start.setText("Start GAME");
-		start.setBackground(Color.white);
-  		start.setForeground(Color.black);
+		start.setBackground(Color.black);
+  		start.setForeground(Color.white);
+		start.addMouseListener(
+				new MouseListener(){
+
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+						
+					}
+
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}}
+				);
+	JButton close = new JButton("close");
+  		start.setBounds(200,350,200,50);
+		start.setText("Exit GAME");
+		start.setBackground(Color.black);
+  		start.setForeground(Color.white);
 		start.addMouseListener(
 				new MouseListener(){
 
@@ -98,8 +135,14 @@ public void showscreen(){
 		//my_frame.setContentPane(layered);
 		//layered.add(Title, 2);
 		//layered.add(start, 1);
+	
 		my_frame.add(start);
 		my_frame.add(Title);
+		my_frame.add(close);
+		//my_frame.add(background);
+		
+ 
+ 		my_frame.setVisible(true);
   
 }
 
