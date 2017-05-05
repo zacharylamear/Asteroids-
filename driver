@@ -139,22 +139,32 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	 }
 	 
 
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+	public class MyKeyListener extends Ship implements KeyListener {
+		@Override
+		public void keyTyped(KeyEvent e) {
+			
+		}
 
-	@Override
-	public void keyPressed(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+		@Override
+		public void keyPressed(KeyEvent e) {
+			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
+			int key = e.getKeyCode();
+			if(key==37) setVelX(-5); setVelY(0);
+			if(key==38) setVelY(5); setVelX(0);
+			if(key==39) setVelX(5); setVelY(0);
+			if(key==40) setVelY(-5); setVelX(0);
+		}
 
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
+		@Override
+		public void keyReleased(KeyEvent e) {
+			System.out.println("keyReleased="+KeyEvent.getKeyText(e.getKeyCode()));
+			int key = e.getKeyCode();
+			if(key==37) setVelX(-1);
+			if(key==38) setVelY(1);
+			if(key==39) setVelX(1);
+			if(key==40) setVelY(-1);
+			
+		}
 	}
 
 	@Override
