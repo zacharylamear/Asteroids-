@@ -1,1 +1,166 @@
-driver
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.ArrayList;
+
+import javax.swing.Timer;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class driver extends JPanel implements ActionListener, MouseListener, KeyListener {
+    Timer timer;
+    int x = 0;
+    int x_vel = 10;
+    int y_vel = 10;
+    //create a list of asteroids that will hold a and b respectivly
+    ArrayList<asteroid> asteroids = new ArrayList<asteroid>();
+    asteroid b;
+    asteroid a;
+    
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StartScreen s = new StartScreen(640,480);
+		s.showscreen();
+		while(s.getcounter()<=0){
+			//do nothing
+		}
+		driver d = new driver();
+		d.setup();
+		
+		
+	}
+
+    public void  setup() {
+    	//use a list and for loop to make as many asteroids with random x and y as needed
+    	b = new asteroid();
+    	a = new asteroid();
+    	a.setx((int)(Math.random()*640));
+    	
+    	
+		timer = new Timer(17, this);
+        JFrame frame = new JFrame("asteroid");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
+        frame.add(this);
+        frame.setSize(640,480);
+        frame.setBackground(Color.black);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
+        timer.start();
+    }	
+	
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		repaint();
+		//us a for loop to run the code below for every asteroid
+		//asteroid a
+		a.setx(a.getx()+a.getxvel());
+		a.sety(a.gety()+a.getyvel());
+		
+		if(a.getx()>=640-a.getradius()){
+			a.setx(1);
+			//b.setxvel(b.getxvel()*(-1));//flop it
+		}
+		
+		if(a.getx()<= 0){
+			a.setxvel(a.getxvel()*(-1));//flop it
+		}	
+		
+		if(a.gety() >= 480-a.getradius() || a.gety() <=0){
+			a.sety(1);
+			//b.setyvel(b.getyvel()*(-1));
+		}
+		//asteroid b
+		b.setx(b.getx()+b.getxvel());
+		b.sety(b.gety()+b.getyvel());
+		
+		if(b.getx()>=640-b.getradius()){
+			b.setx(1);
+			//b.setxvel(b.getxvel()*(-1));//flop it
+		}
+		
+		if(b.getx()<= 0){
+			b.setxvel(b.getxvel()*(-1));//flop it
+		}	
+		
+		if(b.gety() >= 480-b.getradius() || b.gety() <=0){
+			b.sety(1);
+			//b.setyvel(b.getyvel()*(-1));
+		}
+		
+		
+		
+	}
+	
+	 public void paint(Graphics g) {
+	       
+		 	//create a for loop to make a bundle of circles
+	        super.paintComponent(g);
+	        Graphics2D g2 = (Graphics2D) g;
+	        g2.fillOval(b.getx(), b.gety(), b.getradius(), b.getradius());
+	        g2.fillOval(a.getx(), a.gety(), a.getradius(), a.getradius());
+	        g2.setColor(Color.white);
+	        
+	        
+	 
+	 }
+	 
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
