@@ -1,13 +1,12 @@
-
 import java.awt.Color;
 
 public class asteroid {
-	private int radius;
+	private double radius;
 	private Color color;
-	private int x;
-	private int y;
-	private int x_velocity;
-	private int y_velocity;
+	private double x;
+	private double y;
+	private double x_velocity;
+	private double y_velocity;
 	
 	public asteroid(int radius, Color color){
 		x_velocity = 10;
@@ -19,43 +18,43 @@ public class asteroid {
 	public asteroid(){
 		x_velocity = 10;
 		y_velocity = 10;		
-		this.radius = 50;
+		this.radius = 20;
 		this.color = Color.magenta;
 	}
-	public int getradius(){
+	public double getradius(){
 		return radius;
 	}
 	public Color getColor(){
 		return color;
 	}
-	public int getx(){
+	public double getx(){
 		return x;
 	}
-	public int gety(){
+	public double gety(){
 		return y;
 	}
-	public int getxvel(){
+	public double getxvel(){
 		return x_velocity;
 	}
-	public int getyvel(){
+	public double getyvel(){
 		return y_velocity;
 	}
-	public void setradius(int r){
+	public void setradius(double r){
 		radius = r;
 	}
 	public void setColor(Color color){
 		this.color = color;
 	}
-	public void setx(int x){
+	public void setx(double x){
 		this.x = x;
 	}
-	public void sety(int y){
+	public void sety(double y){
 		this.y = y;
 	}
-	public void setxvel(int xvel){
+	public void setxvel(double xvel){
 		x_velocity = xvel;
 	}
-	public void setyvel(int yvel){
+	public void setyvel(double yvel){
 		y_velocity = yvel;
 	}
 }
