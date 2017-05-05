@@ -24,6 +24,13 @@ public class Ship{
 	
 	public void setVelX(double vel){velx = vel;}
 	public void setVelY(double vel){vely = vel;}
+	public void setLocX(double x){locx = x;}
+	public void setLocY(double y){locy = y;}
+	
+	public double getVelX(){ return velx;}
+	public double getVelY(){ return vely;}
+	public double getLocX(){ return locx;}
+	public double getLocY(){ return locy;}
 	
 	public Shape getShape(){
 		return shape;
