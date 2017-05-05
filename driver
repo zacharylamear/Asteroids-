@@ -1,7 +1,9 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 import java.awt.RenderingHints;
+import java.awt.Shape;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -22,9 +24,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     int y_vel = 10;
     //create a list of asteroids that will hold a and b respectivly
     ArrayList<asteroid> asteroids = new ArrayList<asteroid>();
-    asteroid b;
     asteroid a;
-    
+    Ship z;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		StartScreen s = new StartScreen(640,480);
@@ -52,6 +53,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
             	asteroids.get(i).setyvel((int)(Math.random()*10)-5);
     		}
     	}
+    	Ship z = new Ship();
     	
 		timer = new Timer(17, this);
         JFrame frame = new JFrame("asteroid");
@@ -62,6 +64,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
         frame.setSize(640,480);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
+        KeyListener listener = new MyKeyListener();
+        frame.addKeyListener(listener);
         timer.start();
     }	
 	
@@ -127,13 +131,14 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        for(int i = 0; i<asteroids.size();i++){
 
 	        	 Ellipse2D.Double shape = new Ellipse2D.Double(asteroids.get(i).getx(), asteroids.get(i).gety(), asteroids.get(i).getradius(), asteroids.get(i).getradius());
-	        	    g2.draw(shape);  
+	        	    g2.fill(shape); 
 	        	//g2.fillOval(asteroids.get(i).getx(), asteroids.get(i).gety(), asteroids.get(i).getradius(), asteroids.get(i).getradius());
 	        }
 	        //g2.fillOval(b.getx(), b.gety(), b.getradius(), b.getradius());
 	        //g2.fillOval(a.getx(), a.gety(), a.getradius(), a.getradius());
-	      
-	        
+	        g2.setColor(Color.green);
+	        Shape p = z.getShape();
+	        g2.fill(p);
 	        
 	 
 	 }
@@ -197,4 +202,22 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		
 	}
 
+	@Override
+	public void keyPressed(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void keyReleased(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void keyTyped(KeyEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
+
