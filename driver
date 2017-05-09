@@ -137,6 +137,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        //g2.fillOval(b.getx(), b.gety(), b.getradius(), b.getradius());
 	        //g2.fillOval(a.getx(), a.gety(), a.getradius(), a.getradius());
 	        g2.setColor(Color.green);
+	        g2.fillPolygon(ship.getshipx(), ship.getshipy(), 3);
 	        //g2.fillPolygon(ship.getshipx(), ship.getshipy(), ship.getshipxlength());
 	        
 	 
@@ -232,5 +233,3 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		// TODO Auto-generated method stub
 		
 	}
-
-}
