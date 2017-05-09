@@ -53,7 +53,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
             	asteroids.get(i).setyvel((int)(Math.random()*10)-5);
     		}
     	}
-    	//Ship ship = new Ship();
+    	
+    	ship = new Ship();
     	
 		timer = new Timer(17, this);
         JFrame frame = new JFrame("asteroid");
@@ -95,28 +96,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			if(asteroids.get(i).gety()<=0+asteroids.get(i).getradius()){
 				asteroids.get(i).sety(479-asteroids.get(i).getradius());
 			}
-		}
-		//us a for loop to run the code below for every asteroid
-		//asteroid a
-		//a.setx(a.getx()+a.getxvel());
-		//a.sety(a.gety()+a.getyvel());
-		
-		//if(a.getx()>=640-a.getradius()){
-		//	a.setx(1);
-			//b.setxvel(b.getxvel()*(-1));//flop it
-		//}
-		
-		//if(a.getx()<= 0){
-		//	a.setxvel(a.getxvel()*(-1));//flop it
-		//}	
-		
-		//if(a.gety() >= 480-a.getradius() || a.gety() <=0){
-			//a.sety(1);
-			//b.setyvel(b.getyvel()*(-1));
-		//}
-		
-		
-		
+		}	
 	}
 	
 	 public void paint(Graphics g) {
@@ -132,18 +112,16 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 
 	        	 Ellipse2D.Double shape = new Ellipse2D.Double(asteroids.get(i).getx(), asteroids.get(i).gety(), asteroids.get(i).getradius(), asteroids.get(i).getradius());
 	        	    g2.fill(shape); 
-	        	//g2.fillOval(asteroids.get(i).getx(), asteroids.get(i).gety(), asteroids.get(i).getradius(), asteroids.get(i).getradius());
+	        	
 	        }
-	        //g2.fillOval(b.getx(), b.gety(), b.getradius(), b.getradius());
-	        //g2.fillOval(a.getx(), a.gety(), a.getradius(), a.getradius());
 	        g2.setColor(Color.green);
 	        g2.fillPolygon(ship.getshipx(), ship.getshipy(), 3);
-	        //g2.fillPolygon(ship.getshipx(), ship.getshipy(), ship.getshipxlength());
+	        
 	        
 	 
 	 }
 	 
-
+//ryans code
 	/*public class MyKeyListener extends Ship implements KeyListener {
 		@Override
 		public void keyTyped(KeyEvent e) {
@@ -233,3 +211,6 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		// TODO Auto-generated method stub
 		
 	}
+
+}
+
