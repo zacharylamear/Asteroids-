@@ -4,8 +4,10 @@ import java.awt.Shape;
 import java.awt.Polygon;
 public class Ship{
 	//make the ship
-	private int[] shipx = {1, 3, 5}; //the x coordinates of the ship polygon
-	private int[] shipy = {0, 7, 0}; //the y coordinates of the ship polygon
+	public int[] shipx = {200, 215, 230}; //the x coordinates of the ship polygon
+	public int[] shipy = {500, 460, 500}; //the y coordinates of the ship polygon
+	// for the x values: {start spot, startspot + 15, startspot +30}
+	//for the y values: {start spot, startspot - 40, start spot}
 	
 	private double velx, vely, locx, locy;
 	boolean alive;
