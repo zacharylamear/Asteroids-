@@ -1,3 +1,4 @@
+
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,13 +10,20 @@ import javax.swing.*;
 public class StartScreen{
   private int framex;
   private int framey;
-
+  private int counter;
 public StartScreen(int framex,int framey){
   this.framex=framex;
   this.framey=framey;
+  counter = 0;
 }
 public StartScreen(double d) {
 	// TODO Auto-generated constructor stub
+}
+public int getcounter(){
+	return counter;
+}
+public void setcounter(int counter){
+	this.counter=counter;
 }
 public void showscreen(){
 	JFrame my_frame = new JFrame();
@@ -24,7 +32,7 @@ public void showscreen(){
 	my_frame.setLayout(null);
 	my_frame.setVisible(true);
 JButton background = new JButton();
-	background.setBounds(0, 0, 600, 600);
+	background.setBounds(0, 0, 640, 480);
 
  JButton Title = new JButton("title");
 
@@ -37,7 +45,7 @@ JButton background = new JButton();
 
 					public void mouseClicked(MouseEvent arg0) {
 						// TODO Auto-generated method stub
-						
+						counter++;
 						
 					}
 
@@ -72,7 +80,7 @@ JButton background = new JButton();
 
 					public void mouseClicked(MouseEvent arg0) {
 						// TODO Auto-generated method stub
-						
+						counter++;
 						
 					}
 
