@@ -58,3 +58,4 @@ public class asteroid {
 		y_velocity = yvel;
 	}
 }
+
