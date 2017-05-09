@@ -19,7 +19,7 @@ public class Ship{
 		locx = 0;
 		locy = 0;
 		alive = true;
-		Shape p = new Polygon(shipx, shipy, shipx.length);
+		Shape p = new Polygon(shipx, shipy, 3);
 		shape = p;
 	}
 	
@@ -32,8 +32,6 @@ public class Ship{
 	public double getVelY(){ return vely;}
 	public double getLocX(){ return locx;}
 	public double getLocY(){ return locy;}
-	public int[] getPolygonX(){ return shipx; }
-	public int[] getPolygonY(){ return shipy; }
 	
 	public Shape getShape(){
 		return shape;
@@ -44,5 +42,10 @@ public class Ship{
 		r = new Rectangle((int) locx, (int) locy, 12, 12);
 		return r;
 	}
-	
+	public int[] getshipx(){
+		return shipx;
+	}
+	public int[] getshipy(){
+		return shipy;
+	}
 }
