@@ -32,6 +32,8 @@ public class Ship{
 	public double getVelY(){ return vely;}
 	public double getLocX(){ return locx;}
 	public double getLocY(){ return locy;}
+	public int[] getPolygonX(){ return shipx; }
+	public int[] getPolygonY(){ return shipy; }
 	
 	public Shape getShape(){
 		return shape;
