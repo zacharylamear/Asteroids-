@@ -25,7 +25,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     //create a list of asteroids that will hold a and b respectivly
     ArrayList<asteroid> asteroids = new ArrayList<asteroid>();
     asteroid a;
-    Ship z;
+    Ship ship;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		StartScreen s = new StartScreen(640,480);
@@ -53,7 +53,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
             	asteroids.get(i).setyvel((int)(Math.random()*10)-5);
     		}
     	}
-    	Ship z = new Ship();
+    	//Ship ship = new Ship();
     	
 		timer = new Timer(17, this);
         JFrame frame = new JFrame("asteroid");
@@ -64,8 +64,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
         frame.setSize(640,480);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-        KeyListener listener = new MyKeyListener();
-        frame.addKeyListener(listener);
+       // KeyListener listener = new MyKeyListener();
+       // frame.addKeyListener(listener);
         timer.start();
     }	
 	
@@ -137,14 +137,13 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        //g2.fillOval(b.getx(), b.gety(), b.getradius(), b.getradius());
 	        //g2.fillOval(a.getx(), a.gety(), a.getradius(), a.getradius());
 	        g2.setColor(Color.green);
-	        Shape p = z.getShape();
-	        g2.fill(p);
+	        //g2.fillPolygon(ship.getshipx(), ship.getshipy(), ship.getshipxlength());
 	        
 	 
 	 }
 	 
 
-	public class MyKeyListener extends Ship implements KeyListener {
+	/*public class MyKeyListener extends Ship implements KeyListener {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			
@@ -171,7 +170,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			
 		}
 	}
-
+*/
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -204,13 +203,28 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 
 	@Override
 	public void keyPressed(KeyEvent arg0) {
+		
 		// TODO Auto-generated method stub
+		System.out.println("keyPressed="+KeyEvent.getKeyText(arg0.getKeyCode()));
+		int key = arg0.getKeyCode();
+		if(key==37) ship.setVelX(-5); ship.setVelY(0);
+		if(key==38) ship.setVelY(5); ship.setVelX(0);
+		if(key==39) ship.setVelX(5); ship.setVelY(0);
+		if(key==40) ship.setVelY(-5); ship.setVelX(0);
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
+		
+		System.out.println("keyReleased="+KeyEvent.getKeyText(arg0.getKeyCode()));
+		int key = arg0.getKeyCode();
+		if(key==37) ship.setVelX(-1);
+		if(key==38) ship.setVelY(1);
+		if(key==39) ship.setVelX(1);
+		if(key==40) ship.setVelY(-1);
+		
 	}
 
 	@Override
@@ -220,4 +234,3 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	}
 
 }
-
