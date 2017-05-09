@@ -12,6 +12,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
+import javax.swing.JTextField;
+
 
 import javax.swing.Timer;
 import javax.swing.JFrame;
@@ -55,7 +57,9 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     	}
     	
     	ship = new Ship();
-    	
+  
+
+    		
 		timer = new Timer(17, this);
         JFrame frame = new JFrame("asteroid");
         frame.setBackground(Color.black);
@@ -65,8 +69,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
         frame.setSize(640,480);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
-       // KeyListener listener = new MyKeyListener();
-       // frame.addKeyListener(listener);
+        KeyListener listener = new MyKeyListener();
+        frame.addKeyListener(listener);
         timer.start();
     }	
 	
@@ -96,7 +100,20 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			if(asteroids.get(i).gety()<=0+asteroids.get(i).getradius()){
 				asteroids.get(i).sety(479-asteroids.get(i).getradius());
 			}
-		}	
+		}
+		ship.setLocX(ship.getLocX()+ship.getVelX());
+		ship.setLocY(ship.getLocY()+ship.getVelY());
+		int[] tempx = new int[3];
+		int[] tempy = new int[3];
+		for(int i = 0; i < ship.getshipx().length; i ++){
+			tempx[i] = ship.getshipx()[i]+ ship.getVelX();
+			
+			ship.getshipx()[i] += ship.getVelX();
+			ship.getshipy()[i] += ship.getVelY();
+		}
+		// JTextField textField = new JTextField();
+		   //textField.addKeyListener();
+
 	}
 	
 	 public void paint(Graphics g) {
@@ -107,14 +124,18 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 	        g2.setRenderingHint(RenderingHints.KEY_STROKE_CONTROL, RenderingHints.VALUE_STROKE_PURE);
 	        
+	        g2.setColor(Color.green);
+	        g2.fillPolygon(ship.getshipx(), ship.getshipy(), 3);
+	        
 	        g2.setColor(Color.black);
 	        for(int i = 0; i<asteroids.size();i++){
-
+             
 	        	 Ellipse2D.Double shape = new Ellipse2D.Double(asteroids.get(i).getx(), asteroids.get(i).gety(), asteroids.get(i).getradius(), asteroids.get(i).getradius());
 	        	    g2.fill(shape); 
 	        	
 	        }
-	        g2.setColor(Color.green);
+	        g2.setColor(Color.magenta);
+	        
 	        g2.fillPolygon(ship.getshipx(), ship.getshipy(), 3);
 	        
 	        
@@ -122,7 +143,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	 }
 	 
 //ryans code
-	/*public class MyKeyListener extends Ship implements KeyListener {
+	public class MyKeyListener extends Ship implements KeyListener {
 		@Override
 		public void keyTyped(KeyEvent e) {
 			
@@ -149,7 +170,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			
 		}
 	}
-*/
+
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -184,26 +205,27 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	public void keyPressed(KeyEvent arg0) {
 		
 		// TODO Auto-generated method stub
+		/*
 		System.out.println("keyPressed="+KeyEvent.getKeyText(arg0.getKeyCode()));
 		int key = arg0.getKeyCode();
 		if(key==37) ship.setVelX(-5); ship.setVelY(0);
 		if(key==38) ship.setVelY(5); ship.setVelX(0);
 		if(key==39) ship.setVelX(5); ship.setVelY(0);
 		if(key==40) ship.setVelY(-5); ship.setVelX(0);
-		
+		*/
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 		
-		System.out.println("keyReleased="+KeyEvent.getKeyText(arg0.getKeyCode()));
+		/*System.out.println("keyReleased="+KeyEvent.getKeyText(arg0.getKeyCode()));
 		int key = arg0.getKeyCode();
 		if(key==37) ship.setVelX(-1);
 		if(key==38) ship.setVelY(1);
 		if(key==39) ship.setVelX(1);
 		if(key==40) ship.setVelY(-1);
-		
+		*/
 	}
 
 	@Override
@@ -213,4 +235,3 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	}
 
 }
-
