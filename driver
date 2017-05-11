@@ -101,6 +101,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 				asteroids.get(i).sety(479-asteroids.get(i).getradius());
 			}
 		}
+		
 		ship.setLocX(ship.getLocX()+ship.getVelX());
 		ship.setLocY(ship.getLocY()+ship.getVelY());
 		int[] tempx = new int[3];
@@ -108,9 +109,16 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i < ship.getshipx().length; i ++){
 			tempx[i] = ship.getshipx()[i]+ ship.getVelX();
 			
-			ship.getshipx()[i] += ship.getVelX();
-			ship.getshipy()[i] += ship.getVelY();
+			//ship.getshipx()[i] += ship.getVelX();
 		}
+		for(int i = 0; i < ship.getshipx().length; i ++){
+			tempy[i] = ship.getshipy()[i]+ ship.getVelY();
+			
+			//ship.getshipy()[i] += ship.getVelY();
+		}
+		ship.setShipX(tempx);
+		ship.setShipY(tempy);
+		
 		// JTextField textField = new JTextField();
 		   //textField.addKeyListener();
 
@@ -153,20 +161,20 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		public void keyPressed(KeyEvent e) {
 			System.out.println("keyPressed="+KeyEvent.getKeyText(e.getKeyCode()));
 			int key = e.getKeyCode();
-			if(key==37) setVelX(-5); setVelY(0);
-			if(key==38) setVelY(5); setVelX(0);
-			if(key==39) setVelX(5); setVelY(0);
-			if(key==40) setVelY(-5); setVelX(0);
+			if(key==37) ship.setVelX(-5); 
+			if(key==38) ship.setVelY(-5); 
+			if(key==39) ship.setVelX(5); 
+			if(key==40) ship.setVelY(5); 
 		}
 
 		@Override
 		public void keyReleased(KeyEvent e) {
 			System.out.println("keyReleased="+KeyEvent.getKeyText(e.getKeyCode()));
 			int key = e.getKeyCode();
-			if(key==37) setVelX(-1);
-			if(key==38) setVelY(1);
-			if(key==39) setVelX(1);
-			if(key==40) setVelY(-1);
+			if(key==37) ship.setVelX(0);
+			if(key==38) ship.setVelY(0);
+			if(key==39) ship.setVelX(0);
+			if(key==40) ship.setVelY(0);
 			
 		}
 	}
