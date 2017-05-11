@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.event.ActionEvent;
@@ -26,6 +27,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     int y_vel = 10;
     //create a list of asteroids that will hold a and b respectivly
     ArrayList<asteroid> asteroids = new ArrayList<asteroid>();
+    ArrayList<Bullet> bullets = new ArrayList<Bullet>();
     asteroid a;
     Ship ship;
 	public static void main(String[] args) {
@@ -51,8 +53,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     	asteroids.get(i).setyvel((int)(Math.random()*4)-2);
     	
     		while(asteroids.get(i).getxvel()==0||asteroids.get(i).getyvel()==0){
-    			asteroids.get(i).setxvel((int)(Math.random()*10)-5);
-            	asteroids.get(i).setyvel((int)(Math.random()*10)-5);
+    			asteroids.get(i).setxvel((int)(Math.random()*4)-2);
+            	asteroids.get(i).setyvel((int)(Math.random()*4)-2);
     		}
     	}
     	
@@ -101,6 +103,37 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 				asteroids.get(i).sety(479-asteroids.get(i).getradius());
 			}
 		}
+		int[] thistempx = new int[3];
+		int[] thistempy = new int[3];
+		thistempx = ship.getshipx();
+		thistempy = ship.getshipy();
+	
+			if(thistempx[2]>640){
+				thistempx[0]=1;
+				thistempx[1]=15;
+				thistempx[2]=30;
+				ship.setShipX(thistempx);
+			}
+			if(thistempx[0]<0){
+				thistempx[0]=610;
+				thistempx[1]=625;
+				thistempx[2]=640;
+				ship.setShipX(thistempx);
+			}
+			if(thistempy[1]<0){
+				thistempy[0]=640;
+				thistempy[1]=600;
+				thistempy[2]=640;
+				ship.setShipX(thistempy);
+			}
+			if(thistempy[0]>640){
+				thistempy[0]=40;
+				thistempy[1]=0;
+				thistempy[2]=40;
+				ship.setShipY(thistempy);
+			}
+		
+		
 		
 		ship.setLocX(ship.getLocX()+ship.getVelX());
 		ship.setLocY(ship.getLocY()+ship.getVelY());
@@ -116,8 +149,16 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			
 			//ship.getshipy()[i] += ship.getVelY();
 		}
-		ship.setShipX(tempx);
-		ship.setShipY(tempy);
+		Ship.shipx = tempx;
+		Ship.shipy = tempy;
+		
+		for(int i = 0; i < bullets.size(); i++){
+			bullets.get(i).setLocX(bullets.get(i).getlocx() + bullets.get(i).getvelx());
+			bullets.get(i).setLocY(bullets.get(i).getlocy() + bullets.get(i).getvely());
+		}
+		
+		
+		
 		
 		// JTextField textField = new JTextField();
 		   //textField.addKeyListener();
@@ -143,15 +184,24 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        	
 	        }
 	        g2.setColor(Color.magenta);
-	        
 	        g2.fillPolygon(ship.getshipx(), ship.getshipy(), 3);
 	        
+	        for(int i= 0; i < bullets.size(); i++){
+	        	
+	        	g2.setColor(bullets.get(i).getColor());
+	        	Shape temp = bullets.get(i).getshape();
+	        	
+	        	bullets.get(i).setlocy(bullets.get(i).getlocy() + -7);
+	        	
+	        	g2.fill(new Rectangle(bullets.get(i).getlocx(), bullets.get(i).getlocy(), bullets.get(i).getwidth(), bullets.get(i).getheight()));
+	        }   
 	        
 	 
 	 }
 	 
 //ryans code
 	public class MyKeyListener extends Ship implements KeyListener {
+		boolean shot = false;
 		@Override
 		public void keyTyped(KeyEvent e) {
 			
@@ -165,6 +215,11 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			if(key==38) ship.setVelY(-5); 
 			if(key==39) ship.setVelX(5); 
 			if(key==40) ship.setVelY(5); 
+			if(key  == 32){
+				if(!shot) bullets.add(new Bullet());
+				shot = true;
+			}
+			
 		}
 
 		@Override
@@ -175,6 +230,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			if(key==38) ship.setVelY(0);
 			if(key==39) ship.setVelX(0);
 			if(key==40) ship.setVelY(0);
+			if(key==32) shot = false;
 			
 		}
 	}
