@@ -56,6 +56,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     			asteroids.get(i).setxvel((int)(Math.random()*4)-2);
             	asteroids.get(i).setyvel((int)(Math.random()*4)-2);
     		}
+    		
     	}
     	
     	ship = new Ship();
@@ -87,19 +88,20 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 			asteroids.get(i).sety(asteroids.get(i).gety()+asteroids.get(i).getyvel());
 			
 			if(asteroids.get(i).getx()>=640-asteroids.get(i).getradius()){
-				asteroids.get(i).setx(1+asteroids.get(i).getradius());
+				asteroids.get(i).setx(0);
 				//b.setxvel(b.getxvel()*(-1));//flop it
 			}
-			
-			if(asteroids.get(i).getx()<= 0+asteroids.get(i).getradius()){
+			//asteroids.get(i).getradius()
+			if(asteroids.get(i).getx()< 0){
 				asteroids.get(i).setx(640-asteroids.get(i).getradius());//flop it
 			}	
 			
 			if(asteroids.get(i).gety() >= 480-asteroids.get(i).getradius()){
-				asteroids.get(i).sety(1+asteroids.get(i).getradius());
+				asteroids.get(i).sety(0);
 				//b.setyvel(b.getyvel()*(-1));
 			}
-			if(asteroids.get(i).gety()<=0+asteroids.get(i).getradius()){
+			//+asteroids.get(i).getradius()
+			if(asteroids.get(i).gety()<0){
 				asteroids.get(i).sety(479-asteroids.get(i).getradius());
 			}
 		}
@@ -114,19 +116,19 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 				thistempx[2]=30;
 				ship.setShipX(thistempx);
 			}
-			if(thistempx[0]<0){
+			if(thistempx[0]<=0){
 				thistempx[0]=610;
 				thistempx[1]=625;
 				thistempx[2]=640;
 				ship.setShipX(thistempx);
 			}
 			if(thistempy[1]<0){
-				thistempy[0]=640;
-				thistempy[1]=600;
-				thistempy[2]=640;
-				ship.setShipX(thistempy);
+				thistempy[0]=480;
+				thistempy[1]=440;
+				thistempy[2]=480;
+				ship.setShipY(thistempy);
 			}
-			if(thistempy[0]>640){
+			if(thistempy[0]>480){
 				thistempy[0]=40;
 				thistempy[1]=0;
 				thistempy[2]=40;
@@ -155,7 +157,11 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		for(int i = 0; i < bullets.size(); i++){
 			bullets.get(i).setLocX(bullets.get(i).getlocx() + bullets.get(i).getvelx());
 			bullets.get(i).setLocY(bullets.get(i).getlocy() + bullets.get(i).getvely());
+			if(bullets.get(i).getlocy()==0){
+				bullets.remove(i);
+			}
 		}
+		
 		
 		
 		
