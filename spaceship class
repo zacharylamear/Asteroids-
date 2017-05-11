@@ -5,11 +5,12 @@ import java.awt.Polygon;
 public class Ship{
 	//make the ship
 	public int[] shipx = {200, 215, 230}; //the x coordinates of the ship polygon
-	public int[] shipy = {500, 460, 500}; //the y coordinates of the ship polygon
+	public int[] shipy = {300, 260, 300}; //the y coordinates of the ship polygon
 	// for the x values: {start spot, startspot + 15, startspot +30}
 	//for the y values: {start spot, startspot - 40, start spot}
 	
-	private double velx, vely, locx, locy;
+	private double locx, locy;
+	private int velx, vely;
 	boolean alive;
 	private Shape shape;
 	
@@ -23,15 +24,17 @@ public class Ship{
 		shape = p;
 	}
 	
-	public void setVelX(double vel){velx = vel;}
-	public void setVelY(double vel){vely = vel;}
+	public void setVelX(int vel){velx = vel;}
+	public void setVelY(int vel){vely = vel;}
 	public void setLocX(double x){locx = x;}
 	public void setLocY(double y){locy = y;}
+	public void setShipX(int[] shipx){this.shipx  = shipx;}
+	public void setShipY(int[] shipy){this.shipy = shipy;}
 	
-	public double getVelX(){ return velx;}
-	public double getVelY(){ return vely;}
+	public int getVelX(){ return velx;}
+	public int getVelY(){ return vely;}
 	public double getLocX(){ return locx;}
-	public double getLocY(){ return locy;}
+	public double getLocY(){ return locy;} 
 	
 	public Shape getShape(){
 		return shape;
@@ -48,4 +51,5 @@ public class Ship{
 	public int[] getshipy(){
 		return shipy;
 	}
+	
 }
