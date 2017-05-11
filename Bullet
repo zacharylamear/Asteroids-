@@ -1,0 +1,43 @@
+
+import java.awt.Shape;
+import java.awt.Rectangle;
+import java.awt.Color;
+public class Bullet extends Ship {
+	private Color color;
+	private Shape shape;
+	private int locx, locy, velx, vely, height, width;
+	
+	
+	
+	public Bullet(){
+		locx = getshipx()[1]-(width);
+		locy = getshipy()[1]-height;
+		velx = 0;
+		vely = -7;
+		height = 20;
+		width = 5;
+		Rectangle x;
+		x = new Rectangle(locx, locy, width, height);
+		shape = x;
+		color = Color.blue;
+	}
+	
+	public void setlocx(int x){this.locx = x;}
+	public void setlocy(int y){this.locy = y;}
+	public void setvelx(int x){this.velx = x;}
+	public void setvely(int y){this.vely = y;}
+	public void setshape(Rectangle r){this.shape = shape;}
+	
+	public Color getColor(){return color;}
+	public int getlocx(){return locx;}
+	public int getlocy(){return locy;}
+	public int getvelx(){return velx;}
+	public int getvely(){return vely;}
+	public Shape getshape(){return shape;}
+	public int getwidth(){return width;}
+	public int getheight(){return height;}
+	
+	
+	
+	
+}
