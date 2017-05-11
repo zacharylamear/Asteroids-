@@ -36,7 +36,7 @@ public class asteroid {
 	public double getxvel(){
 		return x_velocity;
 	}
-	public double getyvel(){
+	public double getyvel(){                           
 		return y_velocity;
 	}
 	public void setradius(double r){
@@ -58,3 +58,4 @@ public class asteroid {
 		y_velocity = yvel;
 	}
 }
+
