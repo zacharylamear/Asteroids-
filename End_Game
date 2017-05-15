@@ -1,0 +1,153 @@
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+import javax.swing.*;  
+public class End_Game{
+  private int framex;
+  private int framey;
+  private int counter;
+public End_Game(int framex,int framey){
+  this.framex=framex;
+  this.framey=framey;
+  counter = 0;
+}
+public End_Game(double d) {
+	// TODO Auto-generated constructor stub
+}
+public int getcounter(){
+	return counter;
+}
+public void setcounter(int counter){
+	this.counter=counter;
+}
+public void showscreen(){
+	
+	JFrame my_frame = new JFrame();
+	my_frame.setSize(framex,framey);
+	//my_frame.getContentPane().setBackground(Color.black);
+	my_frame.setLayout(null);
+	my_frame.setVisible(true);
+JButton background = new JButton();
+	background.setBounds(0, 0, 640, 480);
+
+ JButton Title = new JButton("title");
+
+		Title.setBounds(100, 100, 400, 100);
+		Title.setText("Game Over");
+		Title.setFont(new Font("TimesRoman", Font.PLAIN,100 ));
+		Title.setBackground(Color.white);
+		Title.setForeground(Color.black);
+		Title.addMouseListener(
+				new MouseListener(){
+
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						counter++;
+						
+					}
+
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}}
+				);
+ 
+ JButton start = new JButton("start");
+  		start.setBounds(200,250,200,50);
+		start.setText("Start GAME");
+		Title.setFont(new Font("TimesRoman", Font.PLAIN,15 ));
+		start.setBackground(Color.black);
+  		start.setForeground(Color.white);
+		start.addMouseListener(
+				new MouseListener(){
+
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						counter=10;
+						
+					}
+
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}}
+				);
+		JButton close = new JButton("close");
+  		start.setBounds(200,350,200,50);
+		start.setText("Exit GAME");
+		start.setBackground(Color.black);
+  		start.setForeground(Color.white);
+		start.addMouseListener(
+				new MouseListener(){
+
+					public void mouseClicked(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						System.exit(-1);
+						
+					}
+
+					public void mouseEntered(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseExited(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mousePressed(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					public void mouseReleased(MouseEvent arg0) {
+						// TODO Auto-generated method stub
+						
+					}}
+				);
+		my_frame.add(start);
+		my_frame.add(Title);
+		my_frame.add(close);
+		//my_frame.add(background);
+		
+ 
+ 		my_frame.setVisible(true);
+}
+
+}
