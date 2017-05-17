@@ -51,5 +51,31 @@ public class Ship{
 	public int[] getshipy(){
 		return shipy;
 	}
-	
+	public boolean getalive(){
+		return alive;
+	}
+	public void setdead(){
+		alive = false;
+	}
+	public void setalive(){
+		alive = true;
+	}
+	/*public boolean Intersects(asteroid a){
+		int counter = 0;
+		for(int yx = 0; yx<3; yx++){
+			if(a.gety()==shipy[yx]){
+				counter++;
+			}
+		}
+		for(int xy = 0; xy<3; xy++){
+			if(a.getx()==shipx[xy]){
+				counter++;
+			}
+		}
+		if(counter <=2){
+			return true;
+		}
+		return false;
+	}
+	*/
 }
