@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Frame;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
@@ -42,9 +43,12 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		}
 		driver d = new driver();
 		d.setup();
+	
+		
+		
 		
 	}
-	public void gameover(){
+	public static void gameover(){
 		End_Game endgame = new End_Game(640,480); 
 		endgame.showscreen();
 		
@@ -98,16 +102,25 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		repaint();
-		System.out.println(ship.alive);
+	
 		int numnewas = 0;
 		
 		for(int i = 0; i<asteroids.size();i++){
 			
 			//getbounds stuffs
 			if(overlaps(asteroids.get(i).getBounds(), ship.getBounds())) ship.setdead();
+			if(!ship.getalive()){
+				driver.gameover();
+				ship.setlocx(-10);
+				ship.setlocy(-10);
+				ship.setalive();
+				d.setVisible(false);
+
+				
+			}
 			for(int q = 0; q < bullets.size(); q++){
 				if(overlaps(asteroids.get(i).getBounds(), bullets.get(q).getBounds())){
-					asteroids.remove(i);
+					asteroids.remove(i); 
 					bullets.remove(q);
 					numnewas= numnewas+2;
 				}
@@ -164,24 +177,28 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 				thistempx[1]=15;
 				thistempx[2]=30;
 				ship.setShipX(thistempx);
+				ship.setlocx(1);
 			}
 			if(thistempx[0]<=0){
 				thistempx[0]=610;
 				thistempx[1]=625;
 				thistempx[2]=640;
 				ship.setShipX(thistempx);
+				ship.setlocx(610);
 			}
 			if(thistempy[1]<0){
 				thistempy[0]=480;
 				thistempy[1]=440;
 				thistempy[2]=480;
 				ship.setShipY(thistempy);
+				ship.setLocY(480);
 			}
 			if(thistempy[0]>480){
 				thistempy[0]=40;
 				thistempy[1]=0;
 				thistempy[2]=40;
 				ship.setShipY(thistempy);
+				ship.setlocy(40);
 			}
 		
 		
@@ -265,7 +282,9 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	        	bullets.get(i).setlocy(bullets.get(i).getlocy() + -7);
 	        	
 	        	g2.fill(new Rectangle(bullets.get(i).getlocx(), bullets.get(i).getlocy(), bullets.get(i).getwidth(), bullets.get(i).getheight()));
-	        }   
+	        }
+	        g2.setColor(Color.red);
+	        g2.drawString("#Asteroids: " + asteroids.size(), 20, 20); 
 	        
 	 
 	 }
