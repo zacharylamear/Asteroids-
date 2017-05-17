@@ -31,6 +31,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
     asteroid a;
     Ship ship;
     static int counter;
+    driver d;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		StartScreen s = new StartScreen(640,480);
@@ -41,6 +42,11 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		}
 		driver d = new driver();
 		d.setup();
+		
+	}
+	public void gameover(){
+		End_Game endgame = new End_Game(640,480); 
+		endgame.showscreen();
 		
 	}
 
@@ -54,7 +60,7 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 	
     public void  setup() {
     	//use a list and for loop to make as many asteroids with random x and y as needed
-    	for(int i =0; i<30 ; i++){
+    	for(int i =0; i<1 ; i++){
     	asteroids.add(a = new asteroid());
     	asteroids.get(i).setx((int)(Math.random()*640));
     	asteroids.get(i).sety((int)(Math .random()*480));
@@ -93,7 +99,8 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 		// TODO Auto-generated method stub
 		repaint();
 		System.out.println(ship.alive);
-
+		int numnewas = 0;
+		
 		for(int i = 0; i<asteroids.size();i++){
 			
 			//getbounds stuffs
@@ -102,9 +109,25 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
 				if(overlaps(asteroids.get(i).getBounds(), bullets.get(q).getBounds())){
 					asteroids.remove(i);
 					bullets.remove(q);
+					numnewas= numnewas+2;
 				}
 			}
 		}
+		for(int i = 0; i<numnewas; i++){
+			
+	    	a.setx((int)(Math.random()*640));
+	    	a.sety((int)(Math .random()*480));
+	    	a.setxvel((int)(Math.random()*4)-2);
+	    	a.setyvel((int)(Math.random()*4)-2);
+	    	
+	    		while(a.getxvel()==0||a.getyvel()==0){
+	    			a.setxvel((int)(Math.random()*4)-2);
+	            	a.setyvel((int)(Math.random()*4)-2);
+	    		}
+	    		asteroids.add(a = new asteroid());
+	    		
+		}
+		
 		
 		for(int i = 0; i<asteroids.size();i++){
      	 		
