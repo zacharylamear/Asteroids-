@@ -9,7 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.*;  
 /**
  * StartSCreen class displays the asteroids start and exit game buttons.
- * @author benjaminburnett
+ * @author Ben, Ryan, Zach
  *
  */
 public class StartScreen{
