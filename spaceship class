@@ -2,18 +2,48 @@
 import java.awt.Rectangle;
 import java.awt.Shape;
 import java.awt.Polygon;
+
+/**
+ * Ship class with the position, velocity, shape, and status of the ship
+ * 
+ * @author Ben, Ryan, Zach
+ *
+ */
 public class Ship{
-	//make the ship
-	public static int[] shipx = {200, 215, 230}; //the x coordinates of the ship polygon
-	public static int[] shipy = {300, 260, 300}; //the y coordinates of the ship polygon
-	// for the x values: {start spot, startspot + 15, startspot +30}
-	//for the y values: {start spot, startspot - 40, start spot}
 	
+	/**
+	 * The x coordinate of ship polygon
+	 */
+	public static int[] shipx = {200, 215, 230};
+	
+	/**
+	 * the y coordinates of ship polygon
+	 */
+	public static int[] shipy = {300, 260, 300};
+
+	/**
+	 * the x and y locations of the ship
+	 */
 	private double locx, locy;
+	
+	/**
+	 * the x and y velocity of the ship
+	 */
 	private int velx, vely;
+	
+	/**
+	 * if the ship is alive or not
+	 */
 	boolean alive;
+	
+	/**
+	 * the shape of the ship polygon
+	 */
 	private Shape shape;
 	
+	/**
+	 * default constructor for the ship
+	 */
 	public Ship(){
 		velx = 0;
 		vely = 0;
@@ -24,58 +54,134 @@ public class Ship{
 		shape = p;
 	}
 	
+	/**
+	 * sets the x velocity of the ship
+	 * 
+	 * @param vel the x velocity
+	 */
 	public void setVelX(int vel){velx = vel;}
+	
+	/**
+	 * sets the y velocity of the ship
+	 * 
+	 * @param vel the y velocity
+	 */
 	public void setVelY(int vel){vely = vel;}
+	
+	/**
+	 * sets the x location of the ship
+	 * 
+	 * @param x the x location of the ship
+	 */
 	public void setLocX(double x){locx = x;}
+	
+	/**
+	 * sets the y location of the ship
+	 * 
+	 * @param y the y location of the ship
+	 */
 	public void setLocY(double y){locy = y;}
+	
+	/**
+	 * sets the x position of the ship polygon
+	 * 
+	 * @param shipx the position of the ship polygon
+	 */
 	public void setShipX(int[] shipx){this.shipx  = shipx;}
+	
+	/**
+	 * sets the y position of the ship polygon
+	 * 
+	 * @param shipy the y position of the y polygon
+	 */
 	public void setShipY(int[] shipy){this.shipy = shipy;}
 	
+	/**
+	 * gets the x velocity of the shop
+	 * 
+	 * @return returns x velocity
+	 */
 	public int getVelX(){ return velx;}
+	
+	/**
+	 * gets the y velocity of the ship
+	 * 
+	 * @return returns y velocity
+	 */
 	public int getVelY(){ return vely;}
+	
+	/**
+	 * gets the x location of the ship
+	 * 
+	 * @return returns x location
+	 */
 	public double getLocX(){ return locx;}
+	
+	/**
+	 * gets the y location of the ship
+	 * 
+	 * @return returns y location
+	 */
 	public double getLocY(){ return locy;} 
 	
+	/**
+	 * return the shape of the ship polygon
+	 * 
+	 * @return returns shape
+	 */
 	public Shape getShape(){
 		return shape;
 	}
 	
+	/**
+	 * gets the bounds of the ship rectangle
+	 * 
+	 * @return returns a rectangle
+	 */
 	public Rectangle getBounds(){
 		Rectangle r;
 		r = new Rectangle((int) locx, (int) locy, 12, 12);
 		return r;
 	}
+	
+	/**
+	 * gets the x location of the ship polygon
+	 * 
+	 * @return returns x location 
+	 */
 	public int[] getshipx(){
 		return shipx;
 	}
+	
+	/**
+	 * gets the y location of the ship polygon
+	 * 
+	 * @return returns y location 
+	 */
 	public int[] getshipy(){
 		return shipy;
 	}
+	
+	/**
+	 * gets the alive status of the ship
+	 * 
+	 * @return returns ship status
+	 */
 	public boolean getalive(){
 		return alive;
 	}
+	
+	/**
+	 * sets the ship to not alive
+	 */
 	public void setdead(){
 		alive = false;
 	}
+	
+	/**
+	 * sets the ship to alive
+	 */
 	public void setalive(){
 		alive = true;
 	}
-	/*public boolean Intersects(asteroid a){
-		int counter = 0;
-		for(int yx = 0; yx<3; yx++){
-			if(a.gety()==shipy[yx]){
-				counter++;
-			}
-		}
-		for(int xy = 0; xy<3; xy++){
-			if(a.getx()==shipx[xy]){
-				counter++;
-			}
-		}
-		if(counter <=2){
-			return true;
-		}
-		return false;
-	}
-	*/
 }
