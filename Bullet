@@ -2,13 +2,33 @@
 import java.awt.Shape;
 import java.awt.Rectangle;
 import java.awt.Color;
+
+/**
+ * Bullet class with the shape, location, velocity, and color of the bullets
+ * 
+ * @author Ben, Ryan, Zach
+ *
+ */
 public class Bullet extends Ship {
+	
+	/**
+	 * The color of the bullet
+	 */
 	private Color color;
+	
+	/**
+	 * The shape of the bullet
+	 */
 	private Shape shape;
+	
+	/**
+	 * The xy locations, xy velocities, and size of the bullet
+	 */
 	private int locx, locy, velx, vely, height, width;
 	
-	
-	
+	/**
+	 * Default constructor of a bullet
+	 */
 	public Bullet(){
 		locx = getshipx()[1]-(width);
 		locy = getshipy()[1]-height;
@@ -22,22 +42,94 @@ public class Bullet extends Ship {
 		color = Color.blue;
 	}
 	
+	/**
+	 * Sets the x location of the bullet
+	 * 
+	 * @param x location of the bullet
+	 */
 	public void setlocx(int x){this.locx = x;}
+	
+	/**
+	 * Sets the y location of the bullet
+	 * 
+	 * @param y location of the bullet
+	 */
 	public void setlocy(int y){this.locy = y;}
+	
+	/**
+	 * Sets the x velocity of the bullet
+	 * 
+	 * @param x velocity of the bullet
+	 */
 	public void setvelx(int x){this.velx = x;}
+	
+	/**
+	 * Sets the y velocity of the bullet
+	 * 
+	 * @param y velocity of the bullet
+	 */
 	public void setvely(int y){this.vely = y;}
+	
+	/**
+	 * Gets the shape of the bullet
+	 * 
+	 * @param r shape of bullet
+	 */
 	public void setshape(Rectangle r){this.shape = shape;}
 	
+	/**
+	 * Gets the color of this bullet
+	 * 
+	 * @return returns the color of the bullet
+	 */
 	public Color getColor(){return color;}
+	
+	/**
+	 * Gets the x location of the bullet
+	 * 
+	 * @return returns x location
+	 */
 	public int getlocx(){return locx;}
+	
+	/**
+	 * Gets the y location of the bullet
+	 * 
+	 * @return returns y location
+	 */
 	public int getlocy(){return locy;}
+	
+	/**
+	 * Gets the x velocity of the bullet
+	 * 
+	 * @return returns x velocity
+	 */
 	public int getvelx(){return velx;}
+	
+	/**
+	 * Gets the y velocity of the bullet
+	 * 
+	 * @return returns y velocity
+	 */
 	public int getvely(){return vely;}
+	
+	/**
+	 * Gets the shape of the bullet
+	 * 
+	 * @return returns shape
+	 */
 	public Shape getshape(){return shape;}
+	
+	/**
+	 * Gets the width of the bullet
+	 * 
+	 * @return returns width
+	 */
 	public int getwidth(){return width;}
+	
+	/**
+	 * Gets the height of the bullet
+	 * 
+	 * @return returns height
+	 */
 	public int getheight(){return height;}
-	
-	
-	
-	
 }
