@@ -7,147 +7,145 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.*;  
+
+/**
+ * StartScreen class displays the asteroids start and exit game buttons.
+ * @author Ben, Ryan, Zach
+ *
+ */
 public class End_Game{
+	
+	/**
+	 * height of game screen
+	 */
   private int framex;
+  
+  	/**
+  	 * width of game screen
+  	 */
   private int framey;
+  
+  	/**
+  	 * decides what screen you are on. If the counter is 0 the startscreen is displayed, but if its 1 then it goes to the game
+  	 */
   private int counter;
+  
+  /**
+   * Constructor taking in size of the game screen.
+   * 
+   * @param framex height of game screen
+   * @param framey width of game screen
+   */
 public End_Game(int framex,int framey){
   this.framex=framex;
   this.framey=framey;
   counter = 0;
 }
-public End_Game(double d) {
-	// TODO Auto-generated constructor stub
-}
+
+/**
+ * Gets the current screen state
+ * 
+ * @return returns counter
+ */
 public int getcounter(){
 	return counter;
 }
+
+/**
+ * sets the counter to a different number
+ * 
+ * @param counter sets the screen state
+ */
 public void setcounter(int counter){
 	this.counter=counter;
 }
+
+/**
+ * displays the startscreen and all the J elements
+ */
 public void showscreen(){
 	
+	/**
+	 * creates a JFrame for the layout
+	 */
 	JFrame my_frame = new JFrame();
 	my_frame.setSize(framex,framey);
-	//my_frame.getContentPane().setBackground(Color.black);
 	my_frame.setLayout(null);
 	my_frame.setVisible(true);
-JButton background = new JButton();
+	
+	/*
+	 * the background for the startscreen
+	 */
+	JButton background = new JButton();
 	background.setBounds(0, 0, 640, 480);
-
- JButton Title = new JButton("title");
-
+	
+	/**
+	 * the title button "Asteroids"
+	 */
+	JButton Title = new JButton("title");
+		my_frame.add(Title);
 		Title.setBounds(100, 100, 400, 100);
-		Title.setText("Game Over");
-		Title.setFont(new Font("TimesRoman", Font.PLAIN,100 ));
+		Title.setText("GAME OVER");
+		Title.setFont(new Font("TimesRoman", Font.PLAIN,36 ));
 		Title.setBackground(Color.white);
 		Title.setForeground(Color.black);
 		Title.addMouseListener(
 				new MouseListener(){
-
-					public void mouseClicked(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						counter++;
-						
-					}
-
-					public void mouseEntered(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseExited(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mousePressed(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseReleased(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}}
+					public void mouseClicked(MouseEvent arg0) {}
+					public void mouseEntered(MouseEvent arg0) {}
+					public void mouseExited(MouseEvent arg0) {}
+					public void mousePressed(MouseEvent arg0) {}
+					public void mouseReleased(MouseEvent arg0) {}}
 				);
- 
- JButton start = new JButton("start");
-  		start.setBounds(200,250,200,50);
-		start.setText("Start GAME");
-		Title.setFont(new Font("TimesRoman", Font.PLAIN,15 ));
-		start.setBackground(Color.black);
-  		start.setForeground(Color.white);
-		start.addMouseListener(
-				new MouseListener(){
-
-					public void mouseClicked(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						counter=10;
-						
-					}
-
-					public void mouseEntered(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseExited(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mousePressed(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseReleased(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}}
-				);
-		JButton close = new JButton("close");
-  		start.setBounds(200,350,200,50);
-		start.setText("Exit GAME");
-		start.setBackground(Color.black);
-  		start.setForeground(Color.white);
-		start.addMouseListener(
-				new MouseListener(){
-
-					public void mouseClicked(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						System.exit(-1);
-						
-					}
-
-					public void mouseEntered(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseExited(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mousePressed(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}
-
-					public void mouseReleased(MouseEvent arg0) {
-						// TODO Auto-generated method stub
-						
-					}}
-				);
-		my_frame.add(start);
-		my_frame.add(Title);
-		my_frame.add(close);
-		//my_frame.add(background);
 		
- 
- 		my_frame.setVisible(true);
-}
-
+	/**
+	 * Start game button. If clicked, the game starts
+	 */
+	JButton start = new JButton("start");
+		my_frame.add(start);
+  		start.setBounds(200,240,200,50);
+		start.setText("Start GAME");
+		start.setFont(new Font("TimesRoman", Font.PLAIN,18));
+		start.setBackground(Color.black);
+  		start.setForeground(Color.white);
+		start.addMouseListener(
+				new MouseListener(){
+					
+					/**
+					 * When the mouse is clicked, the counter goes up which means the game screen opens
+					 */
+					public void mouseClicked(MouseEvent arg0) {
+						counter++;
+					}
+					public void mouseEntered(MouseEvent arg0) {}
+					public void mouseExited(MouseEvent arg0) {}
+					public void mousePressed(MouseEvent arg0) {}
+					public void mouseReleased(MouseEvent arg0) {}}
+				);
+		
+	/**
+	 * Exit game button. If pressed, the game closes.
+	 */
+	JButton close = new JButton("close");
+		my_frame.add(close);
+  		close.setBounds(200,320,200,50);
+		close.setText("Exit GAME");
+		close.setFont(new Font("TimesRoman", Font.PLAIN,18 ));
+		close.setBackground(Color.black);
+  		close.setForeground(Color.white);
+		close.addMouseListener(
+				new MouseListener(){
+					
+					/**
+					 * Both the startscreen and the game closes if this button is clicked
+					 */
+					public void mouseClicked(MouseEvent arg0) {
+						System.exit(-1);
+					}
+					public void mouseEntered(MouseEvent arg0) {}
+					public void mouseExited(MouseEvent arg0) {}
+					public void mousePressed(MouseEvent arg0) {}
+					public void mouseReleased(MouseEvent arg0) {}}
+				);
+	}
 }
