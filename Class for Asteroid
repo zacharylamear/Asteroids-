@@ -1,4 +1,5 @@
 import java.awt.Color;
+import java.awt.Rectangle;
 
 public class asteroid {
 	private double radius;
@@ -9,17 +10,25 @@ public class asteroid {
 	private double y_velocity;
 	
 	public asteroid(int radius, Color color){
-		x_velocity = 10;
-		y_velocity = 10;
+		x_velocity = ((int)(Math.random()*4)-2);;
+		y_velocity = ((int)(Math.random()*4)-2);;
 		this.radius = radius;
 		this.color = color;
+		while(x_velocity==0||y_velocity==0){
+			x_velocity =((int)(Math.random()*4)-2);
+        	y_velocity =((int)(Math.random()*4)-2);
+		}
 	}
 	
 	public asteroid(){
-		x_velocity = 10;
-		y_velocity = 10;		
+		x_velocity = ((int)(Math.random()*4)-2);;
+		y_velocity = ((int)(Math.random()*4)-2);;		
 		this.radius = 20;
 		this.color = Color.magenta;
+		while(x_velocity==0||y_velocity==0){
+			x_velocity =((int)(Math.random()*4)-2);
+        	y_velocity =((int)(Math.random()*4)-2);
+		}
 	}
 	public double getradius(){
 		return radius;
@@ -57,5 +66,10 @@ public class asteroid {
 	public void setyvel(double yvel){
 		y_velocity = yvel;
 	}
+	
+	public Rectangle getBounds(){
+		Rectangle r;
+		r = new Rectangle((int) x, (int) y, (int) radius*2, (int) radius*2);
+		return r;
+	}
 }
-
