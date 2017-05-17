@@ -7,24 +7,29 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.*;  
+
 /**
- * StartSCreen class displays the asteroids start and exit game buttons.
+ * StartScreen class displays the asteroids start and exit game buttons.
  * @author Ben, Ryan, Zach
  *
  */
 public class StartScreen{
+	
 	/**
 	 * height of game screen
 	 */
   private int framex;
+  
   	/**
   	 * width of game screen
   	 */
   private int framey;
+  
   	/**
   	 * decides what screen you are on. If the counter is 0 the startscreen is displayed, but if its 1 then it goes to the game
   	 */
   private int counter;
+  
   /**
    * Constructor taking in size of the game screen.
    * 
@@ -45,6 +50,7 @@ public StartScreen(int framex,int framey){
 public int getcounter(){
 	return counter;
 }
+
 /**
  * sets the counter to a different number
  * 
@@ -53,10 +59,12 @@ public int getcounter(){
 public void setcounter(int counter){
 	this.counter=counter;
 }
+
 /**
  * displays the startscreen and all the J elements
  */
 public void showscreen(){
+	
 	/**
 	 * creates a JFrame for the layout
 	 */
@@ -70,6 +78,7 @@ public void showscreen(){
 	 */
 	JButton background = new JButton();
 	background.setBounds(0, 0, 640, 480);
+	
 	/**
 	 * the title button "Asteroids"
 	 */
@@ -88,6 +97,7 @@ public void showscreen(){
 					public void mousePressed(MouseEvent arg0) {}
 					public void mouseReleased(MouseEvent arg0) {}}
 				);
+		
 	/**
 	 * Start game button. If clicked, the game starts
 	 */
@@ -100,6 +110,7 @@ public void showscreen(){
   		start.setForeground(Color.white);
 		start.addMouseListener(
 				new MouseListener(){
+					
 					/**
 					 * When the mouse is clicked, the counter goes up which means the game screen opens
 					 */
@@ -111,6 +122,7 @@ public void showscreen(){
 					public void mousePressed(MouseEvent arg0) {}
 					public void mouseReleased(MouseEvent arg0) {}}
 				);
+		
 	/**
 	 * Exit game button. If pressed, the game closes.
 	 */
@@ -123,6 +135,7 @@ public void showscreen(){
   		close.setForeground(Color.white);
 		close.addMouseListener(
 				new MouseListener(){
+					
 					/**
 					 * Both the startscreen and the game closes if this button is clicked
 					 */
