@@ -1,14 +1,49 @@
 import java.awt.Color;
 import java.awt.Rectangle;
-
+/**
+ * Asteroid class with the radius, location, velocity, and color of the asteroids
+ * 
+ * @author Ben, Ryan, Zach
+ *
+ */
 public class asteroid {
+	
+	/**
+	 * radius of the asteroid
+	 */
 	private double radius;
+	
+	/**
+	 * color of the asteroid
+	 */
 	private Color color;
+	
+	/**
+	 * x location of the asteroid
+	 */
 	private double x;
+	
+	/**
+	 * y location of the asteroid
+	 */
 	private double y;
+	
+	/**
+	 * x velocity of the asteroid 
+	 */
 	private double x_velocity;
+	
+	/**
+	 * y velocity of the asteroid 
+	 */
 	private double y_velocity;
 	
+	/**
+	 * Constructor for asteroids taking in the radius and color
+	 * 
+	 * @param radius the size of the asteroid
+	 * @param color the color of the asteroid
+	 */
 	public asteroid(int radius, Color color){
 		x_velocity = ((int)(Math.random()*4)-2);;
 		y_velocity = ((int)(Math.random()*4)-2);;
@@ -20,6 +55,9 @@ public class asteroid {
 		}
 	}
 	
+	/**
+	 * Default constructor for asteroids
+	 */
 	public asteroid(){
 		x_velocity = ((int)(Math.random()*4)-2);;
 		y_velocity = ((int)(Math.random()*4)-2);;		
@@ -30,43 +68,96 @@ public class asteroid {
         	y_velocity =((int)(Math.random()*4)-2);
 		}
 	}
-	public double getradius(){
-		return radius;
-	}
-	public Color getColor(){
-		return color;
-	}
-	public double getx(){
-		return x;
-	}
-	public double gety(){
-		return y;
-	}
-	public double getxvel(){
-		return x_velocity;
-	}
-	public double getyvel(){                           
-		return y_velocity;
-	}
-	public void setradius(double r){
-		radius = r;
-	}
-	public void setColor(Color color){
-		this.color = color;
-	}
-	public void setx(double x){
-		this.x = x;
-	}
-	public void sety(double y){
-		this.y = y;
-	}
-	public void setxvel(double xvel){
-		x_velocity = xvel;
-	}
-	public void setyvel(double yvel){
-		y_velocity = yvel;
-	}
 	
+	/**
+	 * Gets the radius of the asteroid
+	 * 
+	 * @return returns radius of asteroid
+	 */
+	public double getradius(){return radius;}
+	
+	/**
+	 * Gets the color of the asteroid
+	 * 
+	 * @return returns color of asteroid
+	 */
+	public Color getColor(){return color;}
+	
+	/**
+	 * Gets the x coordinate of the asteroid
+	 * 
+	 * @return returns x coordinate of asteroid
+	 */
+	public double getx(){return x;}
+	
+	/**
+	 * Gets the y coordinate of the asteroid
+	 * 
+	 * @return returns y coordinate of asteroid
+	 */
+	public double gety(){return y;}
+	
+	/**
+	 * Gets the x velocity of the asteroid
+	 * 
+	 * @return returns x velocity of asteroid
+	 */
+	public double getxvel(){return x_velocity;}
+	
+	/**
+	 * Gets the y velocity of the asteroid
+	 * 
+	 * @return returns y velocity of asteroid
+	 */
+	public double getyvel(){return y_velocity;}
+	
+	/**
+	 * Sets the radius of the asteroid
+	 * 
+	 * @param r radius of asteroid
+	 */
+	public void setradius(double r){radius = r;}
+	
+	/**
+	 * Sets the color of the asteroid
+	 * 
+	 * @param color color of asteroid
+	 */
+	public void setColor(Color color){this.color = color;}
+	
+	/**
+	 * Sets the x location of the asteroid 
+	 * 
+	 * @param x location of asteroid
+	 */
+	public void setx(double x){this.x = x;}
+	
+	/**
+	 * Sets the y location of the asteroid
+	 * 
+	 * @param y location of asteroid 
+	 */
+	public void sety(double y){this.y = y;}
+	
+	/**
+	 * Sets the x velocity of the asteroid
+	 * 
+	 * @param xvel x velocity of asteroid 
+	 */
+	public void setxvel(double xvel){x_velocity = xvel;}
+	
+	/**
+	 * Sets the y velocity of the asteroid
+	 * 
+	 * @param yvel y velocity of asteroid
+	 */
+	public void setyvel(double yvel){y_velocity = yvel;}
+	
+	/**
+	 * Gets the bounds of the asteroid
+	 * 
+	 * @return returns the bounds of the asteroid
+	 */
 	public Rectangle getBounds(){
 		Rectangle r;
 		r = new Rectangle((int) x, (int) y, (int) radius*2, (int) radius*2);
