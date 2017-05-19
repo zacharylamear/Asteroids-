@@ -61,7 +61,7 @@ public void setcounter(int counter){
 }
 
 /**
- * displays the startscreen and all the J elements
+ * displays the end game screen and all the J elements
  */
 public void showscreen(){
 	
@@ -74,7 +74,7 @@ public void showscreen(){
 	my_frame.setVisible(true);
 	
 	/*
-	 * the background for the startscreen
+	 * the background for the end game screen
 	 */
 	JButton background = new JButton();
 	background.setBounds(0, 0, 640, 480);
@@ -86,37 +86,12 @@ public void showscreen(){
 		my_frame.add(Title);
 		Title.setBounds(100, 100, 400, 100);
 		Title.setText("GAME OVER");
-		Title.setFont(new Font("TimesRoman", Font.PLAIN,36 ));
+		Title.setFont(new Font("TimesRoman", Font.PLAIN,100 ));
 		Title.setBackground(Color.white);
 		Title.setForeground(Color.black);
 		Title.addMouseListener(
 				new MouseListener(){
 					public void mouseClicked(MouseEvent arg0) {}
-					public void mouseEntered(MouseEvent arg0) {}
-					public void mouseExited(MouseEvent arg0) {}
-					public void mousePressed(MouseEvent arg0) {}
-					public void mouseReleased(MouseEvent arg0) {}}
-				);
-		
-	/**
-	 * Start game button. If clicked, the game starts
-	 */
-	JButton start = new JButton("start");
-		my_frame.add(start);
-  		start.setBounds(200,240,200,50);
-		start.setText("Start GAME");
-		start.setFont(new Font("TimesRoman", Font.PLAIN,18));
-		start.setBackground(Color.black);
-  		start.setForeground(Color.white);
-		start.addMouseListener(
-				new MouseListener(){
-					
-					/**
-					 * When the mouse is clicked, the counter goes up which means the game screen opens
-					 */
-					public void mouseClicked(MouseEvent arg0) {
-						counter++;
-					}
 					public void mouseEntered(MouseEvent arg0) {}
 					public void mouseExited(MouseEvent arg0) {}
 					public void mousePressed(MouseEvent arg0) {}
@@ -137,7 +112,7 @@ public void showscreen(){
 				new MouseListener(){
 					
 					/**
-					 * Both the startscreen and the game closes if this button is clicked
+					 * Both the end game screen and the game closes if this button is clicked
 					 */
 					public void mouseClicked(MouseEvent arg0) {
 						System.exit(-1);
