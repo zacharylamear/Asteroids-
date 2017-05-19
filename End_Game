@@ -84,7 +84,7 @@ public void showscreen(){
 	 */
 	JButton Title = new JButton("title");
 		my_frame.add(Title);
-		Title.setBounds(50, 50, 200,100);
+		Title.setBounds(50, 50, 540,300);
 		Title.setText("GAME OVER");
 		Title.setFont(new Font("TimesRoman", Font.PLAIN,50));
 		Title.setBackground(Color.white);
