@@ -47,8 +47,8 @@ public class Ship{
 	public Ship(){
 		velx = 0;
 		vely = 0;
-		locx = 0;
-		locy = 0;
+		locx = shipx[0];
+		locy = shipy[0];
 		alive = true;
 		Shape p = new Polygon(shipx, shipy, 3);
 		shape = p;
@@ -183,5 +183,23 @@ public class Ship{
 	 */
 	public void setalive(){
 		alive = true;
+	}
+	
+	/**
+	 * Gets the x location of the ship
+	 * 
+	 * @param locationx x location of the ship
+	 */
+	public void setlocx(int locationx){
+		locx = locationx;
+	}
+	
+	/**
+	 * Gets the y location of the ship
+	 * 
+	 * @param locationy y location of the ship
+	 */
+	public void setlocy(int locationy){
+		locy = locationy;
 	}
 }
