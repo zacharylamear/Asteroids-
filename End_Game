@@ -9,7 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.*;  
 
 /**
- * StartScreen class displays the asteroids start and exit game buttons.
+ * EndGame screen displays GAME OVER and it exits the game when pressed
  * @author Ben, Ryan, Zach
  *
  */
@@ -80,39 +80,20 @@ public void showscreen(){
 	background.setBounds(0, 0, 640, 480);
 	
 	/**
-	 * the title button "Asteroids"
+	 * the title button "game over"
 	 */
 	JButton Title = new JButton("title");
 		my_frame.add(Title);
-		Title.setBounds(100, 100, 400, 100);
+		Title.setBounds(50, 50, 200,100);
 		Title.setText("GAME OVER");
-		Title.setFont(new Font("TimesRoman", Font.PLAIN,100 ));
+		Title.setFont(new Font("TimesRoman", Font.PLAIN,50));
 		Title.setBackground(Color.white);
 		Title.setForeground(Color.black);
 		Title.addMouseListener(
 				new MouseListener(){
-					public void mouseClicked(MouseEvent arg0) {}
-					public void mouseEntered(MouseEvent arg0) {}
-					public void mouseExited(MouseEvent arg0) {}
-					public void mousePressed(MouseEvent arg0) {}
-					public void mouseReleased(MouseEvent arg0) {}}
-				);
-		
-	/**
-	 * Exit game button. If pressed, the game closes.
-	 */
-	JButton close = new JButton("close");
-		my_frame.add(close);
-  		close.setBounds(200,320,200,50);
-		close.setText("Exit GAME");
-		close.setFont(new Font("TimesRoman", Font.PLAIN,18 ));
-		close.setBackground(Color.black);
-  		close.setForeground(Color.white);
-		close.addMouseListener(
-				new MouseListener(){
 					
 					/**
-					 * Both the end game screen and the game closes if this button is clicked
+					 * Exits the game when pressed
 					 */
 					public void mouseClicked(MouseEvent arg0) {
 						System.exit(-1);
