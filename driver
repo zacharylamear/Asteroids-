@@ -44,7 +44,6 @@ public class driver extends JPanel implements ActionListener, MouseListener, Key
      */
     int y_vel = 10;
     
-    //create a list of asteroids that will hold a and b respectivly
     /**
      * An array list that holds the asteroids
      */
